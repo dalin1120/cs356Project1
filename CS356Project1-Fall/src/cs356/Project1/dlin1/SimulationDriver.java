@@ -12,13 +12,13 @@ import java.util.Scanner;
 public class SimulationDriver 
 {
 
-	public static void main(String[] args)
+   public static void main(String[] args)
    {      
       Random num = new Random();
       int studentNumberGenerator = num.nextInt(50) + 1;                          //Random number generator to generate student amount
-		final int maxStudentNum = studentNumberGenerator;
-		ArrayList<Student> classRoster = new ArrayList<Student>();                 //Array list to hold the class
-		int count = 0;
+      final int maxStudentNum = studentNumberGenerator;
+      ArrayList<Student> classRoster = new ArrayList<Student>();                 //Array list to hold the class
+      int count = 0;
       int input;
       Scanner keyboard = new Scanner(System.in);
       int[] idHolder;                                                            //Array for student IDs
@@ -26,18 +26,18 @@ public class SimulationDriver
       
       Random idGen = new Random();                                               // Random generator to generate student ID
       int idNumGenerator = idGen.nextInt(100000000) + 100000000;
-		for (int i = 0; i < maxStudentNum; i++) 
+      for (int i = 0; i < maxStudentNum; i++) 
       {
-			classRoster.add(new Student(idNumGenerator));                           //For loop to add the Ids to the roster
+         classRoster.add(new Student(idNumGenerator));                           //For loop to add the Ids to the roster
          idNumGenerator = idGen.nextInt(100000000) + 100000000;                  //Resetting the number generator so it doesn't use the same seed
-		}
+      }
       
-		idHolder = new int[classRoster.size()];                                    //sets max size of arrrya that holds id
-		for (int i = 0; i < maxStudentNum; i++) 
+      idHolder = new int[classRoster.size()];                                    //sets max size of arrrya that holds id
+      for (int i = 0; i < maxStudentNum; i++) 
       {
-			idHolder[i] = classRoster.get(i).getStudentNumID();                     //adds the IDs to the holder
-		}
-		iclicker = new ClickerProgram(idHolder);
+         idHolder[i] = classRoster.get(i).getStudentNumID();                     //adds the IDs to the holder
+      }
+      iclicker = new ClickerProgram(idHolder);
       
       System.out.println("Press 1 if you want a single choice question or 2 if you want a question with multiple answers");
       input = keyboard.nextInt();
@@ -56,7 +56,7 @@ public class SimulationDriver
          System.out.println("Wrong input! Closing simulator");
       }	
 	
-	}
+   }
    
    private static void singleAnswer(ClickerProgram iclicker, int maxStudentNum, ArrayList<Student> classRoster, int count)
    {
@@ -87,8 +87,8 @@ public class SimulationDriver
          holder = num2.nextInt(40) + 1;
          randomNumber2 = holder;
       }
-      System.out.println("The answer to this question was C");
-      iclicker.showStudentAnswers(singleProblem, maxStudentNum);
+      System.out.println("The answer to this question was C"); 
+      iclicker.showStudentAnswers(singleProblem, maxStudentNum);  
       iclicker.submissionBreakdown(4);      
    }
    
@@ -114,36 +114,36 @@ public class SimulationDriver
             {
                iclicker.totalAnswers(count);                                                             // count the total number of submissions
                break;
-            }
+            }  
          } 
          count = 0;
-         holder = num3.nextInt(40) + 1;
+         holder = num3.nextInt(40) + 1; 
          randomNumber3 = holder;
          
       }
       System.out.println("The answers to this question were A and D");
       iclicker.showStudentAnswers(multipleAnsProblem, maxStudentNum);                                  // show the number of students who got it correct
-      iclicker.submissionBreakdown(4);                                                        // breaks down answers by the numbers
-   }
-	private static Hashtable<Integer, String> random (ArrayList<Student> classRoster, int maxStudentNum, Question problem, int answers) // Stores IDs into a hashtable
+      iclicker.submissionBreakdown(4);                                                        // breaks down answers by the numbers 
+   }  
+   private static Hashtable<Integer, String> random (ArrayList<Student> classRoster, int maxStudentNum, Question problem, int answers) // Stores IDs into a hashtable
    {                                                                                                                                            // has a branch statement to check for each question prompt
-		Hashtable<Integer, String> table = new Hashtable<Integer, String>();
+      Hashtable<Integer, String> table = new Hashtable<Integer, String>();
 		
-		for (int i = 0; i < maxStudentNum; i++) 
+      for (int i = 0; i < maxStudentNum; i++) 
       {
-			if (problem.getAnswer().length() == 1)
+         if (problem.getAnswer().length() == 1)
          {
-				classRoster.get(i).answerGenerator(answers);
-			} 
+            classRoster.get(i).answerGenerator(answers);
+         } 
          else 
          {
-				classRoster.get(i).multipleAnswerOption(answers);
-			}
-		}
+            classRoster.get(i).multipleAnswerOption(answers);
+         }
+      }
       for (int i = 0; i < maxStudentNum; i++)                                                                                               
       {
-			table.put(classRoster.get(i).getStudentNumID(), classRoster.get(i).ans);
-		}
-		return table;
-	}
+         table.put(classRoster.get(i).getStudentNumID(), classRoster.get(i).ans);
+      }
+      return table;
+   }
 }

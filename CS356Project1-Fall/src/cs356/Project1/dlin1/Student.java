@@ -9,47 +9,47 @@ import java.util.Random;
 public class Student
 {
    protected String ans;
-	private int studentNumberID;
+   private int studentNumberID;
 	   
-	public Student(int num)                               //Constructor for Student ID
+   public Student(int num)                               //Constructor for Student ID
    {
-		this.setStudentNumID(num);
-	}
+      this.setStudentNumID(num);
+   }
    
-	public void setStudentNumID(int id)                   //setter number ID
+   public void setStudentNumID(int id)                   //setter number ID
    {
-		this.studentNumberID = id;
-	}
+      this.studentNumberID = id;
+   }
    
-	public int getStudentNumID()                          //getter for number ID
+   public int getStudentNumID()                          //getter for number ID
    {
-		return studentNumberID;
-	}
+      return studentNumberID;
+   }
 	
-	public void answerGenerator(int number)               // generates answer with random number generator
+   public void answerGenerator(int number)               // generates answer with random number generator
    {
       Random choosenAnswerGenerator = new Random();
       int randomAnswer = choosenAnswerGenerator.nextInt(number);
-		this.ans = "" + (char) (randomAnswer + 65);	
-	}
+      this.ans = "" + (char) (randomAnswer + 65);	
+   }
 
-	public void multipleAnswerOption(int number)          //generates multiple answers with number generator
+   public void multipleAnswerOption(int number)          //generates multiple answers with number generator
    {
-		String answerHolder = "";
-		for (int a = 0; a < number; a++)
+      String answerHolder = "";
+      for (int a = 0; a < number; a++)
       {
-			if (generateMultipleAnswers())
+         if (generateMultipleAnswers())
          {
-				answerHolder += (char)(a + 65);
-			}
-		}
-		ans = answerHolder;
-	}
+            answerHolder += (char)(a + 65);
+         } 
+      }
+      ans = answerHolder;
+   }
 	
-	public boolean generateMultipleAnswers()           //uses the random number generator multiple choice answers aren't all the same th ing
+   public boolean generateMultipleAnswers()           //uses the random number generator multiple choice answers aren't all the same th ing
    {
       Random num = new Random();
       int randomNumber = num.nextInt(2);
-		return randomNumber == 0;
-	}
+      return randomNumber == 0;
+   }
 }

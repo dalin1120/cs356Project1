@@ -11,7 +11,7 @@ public interface IClickerService
 {
    void totalAnswers(int number); 
    void submissionBreakdown(int answers);
-	void showStudentAnswers(Question problem, int maxStudentNum);                                   
-	void pushAnswers(Hashtable<Integer, String> table);                   
+   void showStudentAnswers(Question problem, int maxStudentNum);                                   
+   void pushAnswers(Hashtable<Integer, String> table);                   
 
 }

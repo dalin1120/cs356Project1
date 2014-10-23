@@ -6,32 +6,32 @@
 package cs356.Project1.dlin1;
 public class Question 
 {
-	private String problem;
-	private String studentAnswer;
+   private String problem;
+   private String studentAnswer;
 	
-	public Question(String p, String ans)
+   public Question(String p, String ans)
    {
-		problem = p;
-		studentAnswer = ans;
-	}
+      problem = p;
+      studentAnswer = ans;
+   }
 
-	public String getProblem()               //getter for problem
+   public String getProblem()               //getter for problem
    {
-		return problem;
-	}
+      return problem;
+   }
    
-	public String getAnswer()                 //Getter for answer
+   public String getAnswer()                 //Getter for answer
    {
-		return studentAnswer;
-	}
+      return studentAnswer;
+   }
 
-	public void setProblem(String p)    //Sets problem
+   public void setProblem(String p)    //Sets problem
    {
-		problem = p;
-	}
+      problem = p;
+   }
 
-	public void setAnswer(String ans)         //Sets answer
+   public void setAnswer(String ans)         //Sets answer
    {
-		studentAnswer = ans;
-	}
+      studentAnswer = ans;
+   }
 }
